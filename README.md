@@ -5,3 +5,31 @@ The application runs as a Windows service and extracts records from a database u
 
 Likewise, the service configuration uses a combination of environment variables and App Settings files.
 
+# Projects
+The current solution include the following projects:
+
+- **WorkerService.App**: Contains the Main entry Point
+- **WorkerService.Application**: Implements the Service Logic
+- **WorkerService.Domain**: Defines the Entities and business models
+- **WorkerService.Infrastructure**: Implements the database or external connections
+
+
+# Steps
+Here we describe the steps to implement this Service.
+
+1. Adding Logging
+2. Configuration and Environment
+3. Schedule Execution
+4. Health Check
+5. Data Sources
+6. Consume Web Services
+
+
+## Adding Logging
+## Configuration and Environment
+## Schedule Execution
+## Health Check
+## Data Sources
+## Consume Web Services
+
+

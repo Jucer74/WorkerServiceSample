@@ -3,21 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.WorkerApp", "01.WorkerApp", "{5E33676E-9087-43D3-9F5F-8AEA321100B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerService.App", "WorkerService.App\WorkerService.App.csproj", "{720AE03A-0B93-4406-86AF-64E11747671C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Application", "02.Application", "{3F209B42-D31D-43BA-98AA-230B6B34B0BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerService.Application", "WorkerService.Application\WorkerService.Application.csproj", "{3F1B1CAA-4811-47BC-A63C-A8AABAD97B18}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Domain", "03.Domain", "{C81BEFDF-26BD-4744-B61E-CC95BCE1421E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerService.Domain", "WorkerService.Domain\WorkerService.Domain.csproj", "{ACCDF605-94E9-4F2C-A9C4-1B368C23C4C4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Infrastructure", "04.Infrastructure", "{E1F8625A-4817-4D3C-BD94-5CB523BE2F1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerService.Infrastructure", "WorkerService.Infrastructure\WorkerService.Infrastructure.csproj", "{D9EEEEF7-42A4-466B-A36E-78A490069823}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerService.App", "WorkerService.App\WorkerService.App.csproj", "{720AE03A-0B93-4406-86AF-64E11747671C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71192BF9-54B9-452D-A8EA-A9BBA9F1AAD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerService.Application", "WorkerService.Application\WorkerService.Application.csproj", "{3F1B1CAA-4811-47BC-A63C-A8AABAD97B18}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerService.Domain", "WorkerService.Domain\WorkerService.Domain.csproj", "{ACCDF605-94E9-4F2C-A9C4-1B368C23C4C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerService.Infrastructure", "WorkerService.Infrastructure\WorkerService.Infrastructure.csproj", "{D9EEEEF7-42A4-466B-A36E-78A490069823}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9C862EF6-4348-4CCF-A2CC-D715C418B3C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +42,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{720AE03A-0B93-4406-86AF-64E11747671C} = {5E33676E-9087-43D3-9F5F-8AEA321100B8}
-		{3F1B1CAA-4811-47BC-A63C-A8AABAD97B18} = {3F209B42-D31D-43BA-98AA-230B6B34B0BD}
-		{ACCDF605-94E9-4F2C-A9C4-1B368C23C4C4} = {C81BEFDF-26BD-4744-B61E-CC95BCE1421E}
-		{D9EEEEF7-42A4-466B-A36E-78A490069823} = {E1F8625A-4817-4D3C-BD94-5CB523BE2F1F}
+		{720AE03A-0B93-4406-86AF-64E11747671C} = {71192BF9-54B9-452D-A8EA-A9BBA9F1AAD7}
+		{3F1B1CAA-4811-47BC-A63C-A8AABAD97B18} = {71192BF9-54B9-452D-A8EA-A9BBA9F1AAD7}
+		{ACCDF605-94E9-4F2C-A9C4-1B368C23C4C4} = {71192BF9-54B9-452D-A8EA-A9BBA9F1AAD7}
+		{D9EEEEF7-42A4-466B-A36E-78A490069823} = {71192BF9-54B9-452D-A8EA-A9BBA9F1AAD7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A1E104B-065E-4C1D-A5EF-698B3024013C}
