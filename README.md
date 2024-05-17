@@ -126,7 +126,15 @@ To more details you can chek these links:
 - [How to Use Serilog with .NET8 Worker Template](https://www.youtube.com/watch?v=QJ-KX-_-gxI)
 
 ## Configuration and Environment
+Para evitar codificar información confidencial o escribir estos valores en archivos de configuración, necesitamos crear variables de entorno que anulen estos valores con los valores reales y puedan usarse en el proceso de implementación.
 
+So, we need to create the same configuration values as Environment variables to override these values. Here we have an example for the Connection String to the database.
+
+With the following Appsettings.json file
+
+```json
+
+```
 
 ## Schedule Execution
 ## Health Check

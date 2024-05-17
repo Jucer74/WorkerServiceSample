@@ -15,6 +15,6 @@ builder.Services.AddHostedService<Worker>();
 var host = builder.Build();
 
 Log.Logger = logger;
-Log.Information("Loging Working Service");
+Log.Information("Starting Working Service");
 
 host.Run();
