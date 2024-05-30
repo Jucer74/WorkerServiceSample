@@ -126,19 +126,89 @@ To more details you can chek these links:
 - [How to Use Serilog with .NET8 Worker Template](https://www.youtube.com/watch?v=QJ-KX-_-gxI)
 
 ## Configuration and Environment
-Para evitar codificar información confidencial o escribir estos valores en archivos de configuración, necesitamos crear variables de entorno que anulen estos valores con los valores reales y puedan usarse en el proceso de implementación.
+To avoid hardcoding sensitive information or writing these values to configuration files, we need to create environment variables that override these values with the actual values and can be used in the deployment process.
 
 So, we need to create the same configuration values as Environment variables to override these values. Here we have an example for the Connection String to the database.
 
 With the following Appsettings.json file
 
 ```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "%DefaultConnection%"
+  },
+    "ExternalUrlEndPoints": {
+    "UserUrlEndPoint": "http://localhost/Users.asmx"
+  },
+  "Serilog": ...
+  }
+```
+Create a section or key to save the value. and using the same name create the environment variable.
 
+![](./images/EnvVars_SystemProperties.png)
+
+In this case you can create the environment variable using the same section names, for example:
+
+```code
+set ConnectionStrings:DefaultConnection="Server=localhost;Database=UserDb;User ID=Admin;Password=P4ssw0rd*01;"
 ```
 
+![](./images/EnviromentVariable.jpg)
+
+Now into the program.cs we will do the following changes to add the environemnt variables.
+
+```csharp
+var builder = Host.CreateApplicationBuilder(args);
+
+var configuration = builder.Configuration
+    .AddEnvironmentVariables()
+    .Build();
+
+var logger = new LoggerConfiguration()
+    .ReadFrom
+    .Configuration(configuration)
+    .Enrich.FromLogContext()
+    .Enrich.WithMachineName()
+    .CreateBootstrapLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+
+builder.Services.AddHostedService<Worker>();
+
+var host = builder.Build();
+
+Log.Logger = logger;
+Log.Information("Starting Working Service");
+
+var connectionString = configuration.GetConnectionString("DefaultConnection")!;
+Log.Information(connectionString);
+var scheduleExpression = configuration.GetSection("ScheduleExpression").Value!;
+Log.Information(scheduleExpression);
+
+host.Run();
+```
+
+We ad the Environment variable into the configuration and you can use this calues inside the programa.
+
+---
+
+**NOTE**
+Environment variables require you to reset the IDE and close the command window before you start using it.
+
+---
+
+
 ## Schedule Execution
+
 ## Health Check
+
 ## Data Sources
+
 ## Consume Web Services
-
-
