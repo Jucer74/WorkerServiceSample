@@ -207,6 +207,25 @@ Environment variables require you to reset the IDE and close the command window 
 
 ## Schedule Execution
 
+To schedule the execution of the worker process, we can use the Cronus package to allow an easy way to set the time and its repetition.
+
+[Cronos](https://www.nuget.org/packages/Cronos/)
+
+This package uses crontab expressions and allows any configuration for the runtime.
+
+```code
+                                       Allowed values    Allowed special characters   Comment
+
+┌───────────── second (optional)       0-59              * , - /                      
+│ ┌───────────── minute                0-59              * , - /                      
+│ │ ┌───────────── hour                0-23              * , - /                      
+│ │ │ ┌───────────── day of month      1-31              * , - / L W ?                
+│ │ │ │ ┌───────────── month           1-12 or JAN-DEC   * , - /                      
+│ │ │ │ │ ┌───────────── day of week   0-6  or SUN-SAT   * , - / # L ?                Both 0 and 7 means SUN
+│ │ │ │ │ │
+* * * * * *
+```
+
 ## Health Check
 
 ## Data Sources

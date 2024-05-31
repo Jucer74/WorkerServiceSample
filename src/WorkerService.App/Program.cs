@@ -1,7 +1,8 @@
 var builder = Host.CreateApplicationBuilder(args);
 
-//var configuration = builder.Configuration.AddEnvironmentVariables().Build();
-var configuration = builder.Configuration;
+var configuration = builder.Configuration
+    .AddEnvironmentVariables()
+    .Build();
 
 var logger = new LoggerConfiguration()
     .ReadFrom
