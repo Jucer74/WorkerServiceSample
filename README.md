@@ -17,12 +17,13 @@ The current solution include the following projects:
 # Steps
 Here we describe the steps to implement this Service.
 
-1. Adding Logging
+1. Adding Logging (Console, File, Database)
 2. Configuration and Environment
 3. Schedule Execution
 4. Health Check
-5. Data Sources
-6. Consume Web Services
+5. Data Sources / Store Procedures
+6. Consume Web Services (SOAP)
+7. Deploy Windows Service
 
 
 ## Adding Logging
@@ -211,7 +212,7 @@ To schedule the execution of the worker process, we can use the Cronus package t
 
 [Cronos](https://www.nuget.org/packages/Cronos/)
 
-This package uses crontab expressions and allows any configuration for the runtime.
+This package uses cron format expressions and allows any configuration for the runtime.
 
 ```code
                                        Allowed values    Allowed special characters   Comment
@@ -225,6 +226,7 @@ This package uses crontab expressions and allows any configuration for the runti
 │ │ │ │ │ │
 * * * * * *
 ```
+
 
 ## Health Check
 
