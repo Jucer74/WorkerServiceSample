@@ -1,5 +1,7 @@
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Services.AddWindowsService(options => options.ServiceName = "WorkerService");
+
 var configuration = builder.Configuration
     .AddEnvironmentVariables()
     .Build();

@@ -2,11 +2,47 @@ namespace WorkerService.App;
 
 using Cronos;
 
-public class Worker(ILogger<Worker> logger, IConfiguration configuration) : BackgroundService
+public class Worker(ILogger<Worker> logger, IConfiguration configuration) : BackgroundService, IHostedLifecycleService
 {
     private readonly ILogger<Worker> _logger = logger;
 
     private readonly IConfiguration _configuration = configuration;
+
+    public Task StartedAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Started");
+        return Task.CompletedTask;
+    }
+
+    public Task StartingAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Starting");
+        return Task.CompletedTask;
+    }
+
+    public override Task StartAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Start");
+        return base.StartAsync(cancellationToken);
+    }
+
+    public Task StoppedAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Stopped");
+        return Task.CompletedTask;
+    }
+
+    public Task StoppingAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Stopping");
+        return Task.CompletedTask;
+    }
+
+    public override Task StopAsync(CancellationToken cancellationToken)
+    {
+        _logger.LogInformation("Stop");
+        return base.StopAsync(cancellationToken);
+    }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
